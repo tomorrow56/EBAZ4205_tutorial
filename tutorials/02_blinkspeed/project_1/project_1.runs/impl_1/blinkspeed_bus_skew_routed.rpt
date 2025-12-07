@@ -1,0 +1,16 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+| Date         : Sat Mar 30 15:46:25 2024
+| Host         : DESKTOP-JPBOQSB running 64-bit major release  (build 9200)
+| Command      : report_bus_skew -warn_on_violation -file blinkspeed_bus_skew_routed.rpt -pb blinkspeed_bus_skew_routed.pb -rpx blinkspeed_bus_skew_routed.rpx
+| Design       : blinkspeed
+| Device       : 7z010-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+No bus skew constraints
+

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sat Mar 30 15:42:40 2024
+# Process ID: 9640
+# Current directory: C:/Users/USER/Desktop/EBAZ4205/XilinxFPGA_SE/EBZA4205/02_blinkspeed/project_1/project_1.runs/synth_1
+# Command line: vivado.exe -log blinkspeed.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source blinkspeed.tcl
+# Log file: C:/Users/USER/Desktop/EBAZ4205/XilinxFPGA_SE/EBZA4205/02_blinkspeed/project_1/project_1.runs/synth_1/blinkspeed.vds
+# Journal file: C:/Users/USER/Desktop/EBAZ4205/XilinxFPGA_SE/EBZA4205/02_blinkspeed/project_1/project_1.runs/synth_1\vivado.jou
+# Running On: DESKTOP-JPBOQSB, OS: Windows, CPU Frequency: 1608 MHz, CPU Physical cores: 2, Host memory: 8474 MB
+#-----------------------------------------------------------
+source blinkspeed.tcl -notrace
