@@ -107,6 +107,7 @@ PS側からのLCD制御テストプロジェクトです。
 ## 参考購入先
 
 - https://ja.aliexpress.com/item/1005006074065888.html
+- SDカードスロット型番: [SHOU HAN MEM2055-00-140-00-A (LCSC C393941)](https://www.lcsc.com/product-detail/C393941.html)
 
 ## ライセンス
 
