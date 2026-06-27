@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_led_blink_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_led_blink" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="107,123,723.333 ns"></ZoomStartTime>
+      <ZoomEndTime time="107,127,133.334 ns"></ZoomEndTime>
+      <Cursor1Time time="107,126,565.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="100"></NameColumnWidth>
+      <ValueColumnWidth column_width="102"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="/tb_led_blink/CLK_0" type="logic">
+      <obj_property name="ElementShortName">CLK_0</obj_property>
+      <obj_property name="ObjectShortName">CLK_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_led_blink/Dout_0" type="array">
+      <obj_property name="ElementShortName">Dout_0[2:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout_0[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_led_blink/last_clk" type="array">
+      <obj_property name="ElementShortName">last_clk[63:0]</obj_property>
+      <obj_property name="ObjectShortName">last_clk[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_led_blink/CLK_PERIOD" type="array">
+      <obj_property name="ElementShortName">CLK_PERIOD[63:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_led_blink/dut/led_blink_i/c_counter_binary_0/Q" type="array">
+      <obj_property name="ElementShortName">Q[24:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[24:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
