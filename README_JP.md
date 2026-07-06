@@ -22,20 +22,27 @@ EBAZ4205_tutorial/
 │   ├── TF_boot_image/             # ブートイメージ
 │   ├── ether_phy/                 # Ethernet PHY関連資料
 │   ├── adapter/                   # アダプタ/検証用資材
-│   └── jtag/                      # JTAG関連資料
+│   ├── jtag/                      # JTAG関連資料
+│   ├── SoC_info.txt               # SoC型番メモ
+│   ├── README.md                  # 資料フォルダ概要（英語）
+│   └── README_JP.md               # 資料フォルダ概要（日本語）
 ├── tutorials/                    # チュートリアルプロジェクト
 │   ├── 01_blink/                  # LED点滅（基本）
 │   ├── 02_blinkspeed/             # LED点滅速度制御
 │   ├── 03_pattern/                # パターン表示（HDMI出力）
 │   ├── 04_gradation/              # グラデーション表示（HDMI出力）
 │   ├── 05_Zynq7000/               # Zynq PS+PL統合プロジェクト
-│   ├── 06_hdmi_test/              # HDMI出力テスト
+│   ├── 06_hdmi_test/              # AXI4-Lite制御のHDMIパターンジェネレータ
+│   ├── 07_lcd_spi/                # PS制御ST7789 SPI LCD（生SPI / LVGL v9）
 │   ├── ebaz4205_merged.xdc        # 統合制約ファイル（XDC）
 │   └── ebaz4205_pin_assign.csv    # ピンアサインCSV
 ├── cq_pub/                       # CQ出版向け資材
 │   ├── 01_led/                    # LEDプロジェクトファイル
 │   ├── 02_z7000_ps/               # Zynq7000 PSプロジェクトファイル
 │   ├── 03_vitis_classic_z7000_ps/ # Vitis Classic PSプロジェクトファイル
+│   ├── 04_hdmi/                   # HDMIプロジェクトファイル
+│   │   ├── PL_HDMI/               # PLベースのHDMI出力
+│   │   └── hdmi_axi/              # AXI4-Lite制御のHDMIプロジェクト
 │   ├── ebaz4205_merged.xdc        # 統合制約ファイル（XDC）
 │   └── ebaz4205_pin_assign.csv    # ピンアサインCSV
 └── LICENSE
@@ -74,18 +81,42 @@ HDMI出力によるパターン表示を行います。
 
 Zynq SoCのPS（Processing System）とPL（Programmable Logic）を統合したプロジェクトです。
 
-- Vitis開発環境の使用
-- UART通信
-- PS-PL連携
+- GPIO/UART/イーサネット/タイマーなどを含むVivadoブロックデザイン
+- LED外部テスト1/2、lwIPエコーサーバー、メモリテスト、ペリフェラルテスト、PS LCDなどのVitisアプリケーション
+- UART通信とPS-PL連携
 
-### PS_LCD_test
+### 06_hdmi_test
 
-PS側からのLCD制御テストプロジェクトです。
+PSからのAXI4-Liteレジスタ制御によるHDMIパターンジェネレータです。
+
+- AXI4-Liteスレーブインターフェースによる動的切り替え
+- VGA/480p/720pなどのタイミングプリセットと10種類のテストパターン
+- ランタイムクロック切替え用MMCM DRP
+- TMDS/HDMI出力用Digilent rgb2dvi IP
+
+### 07_lcd_spi
+
+EBAZ4205のPSからST7789 SPI LCD（240×240 px）を駆動するプロジェクトです。
+
+- EMIO GPIOとPS SPI0による制御
+- `lcd_spi_ps`：生SPIドライバ（カラーバー/全画面塗りつぶしデモ）
+- `lcd_lvgl`：LVGL v9 GUIデモ
+
+## CQ出版向け資材
+
+CQ出版向け記事のプロジェクトファイルやアーカイブを格納しています。
+
+- `01_led/` — LEDプロジェクトファイル
+- `02_z7000_ps/` — Zynq7000 PSプロジェクトファイル
+- `03_vitis_classic_z7000_ps/` — Vitis Classic PSプロジェクトアーカイブ
+- `04_hdmi/` — HDMIプロジェクトファイル
+  - `PL_HDMI/` — PLベースのHDMI出力
+  - `hdmi_axi/` — AXI4-Lite制御のHDMIプロジェクト
 
 ## 開発環境
 
-- **Vivado**: 2023.2
-- **Vitis**: 2023.2
+- **Vivado**: 2024.2
+- **Vitis**: 2024.2
 
 ## 参考資料
 
@@ -95,6 +126,8 @@ PS側からのLCD制御テストプロジェクトです。
 - Zynq-7000 TRM（テクニカルリファレンスマニュアル）（`documents/xilinx_user_guide/`）
 - ブートイメージ（`documents/TF_boot_image/`）
 - Ethernet PHY資料（`documents/ether_phy/`）
+- SoC型番メモ（`documents/SoC_info.txt`）
+- 資料フォルダの概要（`documents/README.md`、`documents/README_JP.md`）
 
 ## 記事
 

@@ -23,20 +23,27 @@ EBAZ4205_tutorial/
 │   ├── TF_boot_image/             # Boot images
 │   ├── ether_phy/                 # Ethernet PHY-related documents
 │   ├── adapter/                   # Adapter / verification materials
-│   └── jtag/                      # JTAG-related documents
+│   ├── jtag/                      # JTAG-related documents
+│   ├── SoC_info.txt               # SoC part number note
+│   ├── README.md                  # Documents overview (English)
+│   └── README_JP.md               # Documents overview (Japanese)
 ├── tutorials/                    # Tutorial projects
 │   ├── 01_blink/                  # LED blinking (basic)
 │   ├── 02_blinkspeed/             # LED blink speed control
 │   ├── 03_pattern/                # Pattern display (HDMI output)
 │   ├── 04_gradation/              # Gradation display (HDMI output)
 │   ├── 05_Zynq7000/               # Zynq PS+PL integrated project
-│   ├── 06_hdmi_test/              # HDMI output test
+│   ├── 06_hdmi_test/              # HDMI pattern generator with AXI4-Lite control
+│   ├── 07_lcd_spi/                # PS-driven ST7789 SPI LCD (raw SPI / LVGL v9)
 │   ├── ebaz4205_merged.xdc        # Merged constraint file (XDC)
 │   └── ebaz4205_pin_assign.csv    # Pin assignment CSV
 ├── cq_pub/                       # CQ publication materials
 │   ├── 01_led/                    # LED project files
 │   ├── 02_z7000_ps/               # Zynq7000 PS project files
 │   ├── 03_vitis_classic_z7000_ps/ # Vitis Classic PS project files
+│   ├── 04_hdmi/                   # HDMI project files
+│   │   ├── PL_HDMI/               # PL-based HDMI output
+│   │   └── hdmi_axi/              # AXI4-Lite controlled HDMI project
 │   ├── ebaz4205_merged.xdc        # Merged constraint file (XDC)
 │   └── ebaz4205_pin_assign.csv    # Pin assignment CSV
 └── LICENSE
@@ -75,18 +82,42 @@ An HDMI output application using gradation display.
 
 A project that integrates the Zynq SoC PS (Processing System) and PL (Programmable Logic).
 
-- Using the Vitis development environment
-- UART communication
-- PS-PL integration
+- Vivado block design with GPIO/UART/Ethernet/Timer peripherals
+- Multiple Vitis applications (LED External Test 1/2, lwIP Echo Server, Memory Test, Peripheral Test, PS LCD)
+- UART communication and PS-PL integration
 
-### PS_LCD_test
+### 06_hdmi_test
 
-A test project for LCD control from the PS side.
+An HDMI pattern generator with AXI4-Lite register control from the PS.
+
+- AXI4-Lite slave interface for dynamic switching
+- Multiple timing presets (VGA, 480p, 720p) and 10 test patterns
+- MMCM DRP for runtime clock switching
+- Digilent rgb2dvi IP for TMDS/HDMI output
+
+### 07_lcd_spi
+
+PS-driven ST7789 SPI LCD (240x240 px) projects.
+
+- EMIO GPIO and PS SPI0 control
+- `lcd_spi_ps`: raw SPI LCD driver (color bar / fill screen demos)
+- `lcd_lvgl`: LVGL v9 GUI demo
+
+## CQ Publication Materials
+
+This folder contains project files and archives for CQ publication articles.
+
+- `01_led/` — LED project files
+- `02_z7000_ps/` — Zynq7000 PS project files
+- `03_vitis_classic_z7000_ps/` — Vitis Classic PS project archive
+- `04_hdmi/` — HDMI project files
+  - `PL_HDMI/` — PL-based HDMI output
+  - `hdmi_axi/` — AXI4-Lite controlled HDMI project
 
 ## Development Environment
 
-- **Vivado**: 2023.2
-- **Vitis**: 2023.2
+- **Vivado**: 2024.2
+- **Vitis**: 2024.2
 
 ## References
 
@@ -96,6 +127,8 @@ The following materials are included in the `documents/` folder:
 - Zynq-7000 TRM (Technical Reference Manual) (`documents/xilinx_user_guide/`)
 - Boot images (`documents/TF_boot_image/`)
 - Ethernet PHY documents (`documents/ether_phy/`)
+- SoC part number note (`documents/SoC_info.txt`)
+- Documents folder overview (`documents/README.md`, `documents/README_JP.md`)
 
 ## Articles
 
@@ -108,6 +141,7 @@ The following materials are included in the `documents/` folder:
 ## Where to Buy (Reference)
 
 - https://ja.aliexpress.com/item/1005006074065888.html
+- SD card slot part: [SHOU HAN MEM2055-00-140-00-A (LCSC C393941)](https://www.lcsc.com/product-detail/C393941.html)
 
 ## License
 
