@@ -1,0 +1,22 @@
+/include/ "system-conf.dtsi"
+/ {
+};
+
+&clkc {
+    fclk-enable = <8>;
+};
+
+&gem0 {
+    status = "okay";
+    local-mac-address = [00 0a 35 00 1e 53];
+
+    phy-mode = "mii";
+    phy-handle = <&ethernet_phy0>;
+
+    assigned-clocks = <&clkc 18>;
+    assigned-clock-rates = <25000000>;
+
+    ethernet_phy0: ethernet-phy@0 {
+        reg = <0>;
+    };
+};
