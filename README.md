@@ -44,6 +44,12 @@ EBAZ4205_tutorial/
 │   ├── 04_hdmi/                   # HDMI project files
 │   │   ├── PL_HDMI/               # PL-based HDMI output
 │   │   └── hdmi_axi/              # AXI4-Lite controlled HDMI project
+│   ├── 05_petalinux/              # PetaLinux project files
+│   │   ├── project_zynq7000_plnx.xpr.zip
+│   │   ├── bsp/
+│   │   ├── commands.md
+│   │   ├── link.md
+│   │   └── files/
 │   ├── ebaz4205_merged.xdc        # Merged constraint file (XDC)
 │   └── ebaz4205_pin_assign.csv    # Pin assignment CSV
 └── LICENSE
@@ -113,6 +119,7 @@ This folder contains project files and archives for CQ publication articles.
 - `04_hdmi/` — HDMI project files
   - `PL_HDMI/` — PL-based HDMI output
   - `hdmi_axi/` — AXI4-Lite controlled HDMI project
+- `05_petalinux/` — PetaLinux project files
 
 ## Development Environment
 

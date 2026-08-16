@@ -61,6 +61,26 @@ cq_pub/
 │               ├── hdmi_axi.c
 │               ├── hdmi_axi.h
 │               └── main.c
+├── 05_petalinux/                   # PetaLinux project for EBAZ4205
+│   ├── project_zynq7000_plnx.xpr.zip # Vivado project archive
+│   ├── bsp/                        # BSP package files
+│   │   ├── README_BSP.md
+│   │   ├── device-tree.bbappend
+│   │   ├── ebaz4205_plnx_2024.2_tools.bsp
+│   │   └── petalinux-package
+│   ├── commands.md                 # PetaLinux command list
+│   ├── link.md                     # Reference links
+│   └── files/                      # Exported hardware and examples
+│       ├── bootgen.bif
+│       ├── system-user.dtsi
+│       ├── zynq7000_plnx.xsa
+│       └── example/
+│           ├── axi_gpio/
+│           ├── button.sh
+│           ├── fpga_load.sh
+│           ├── hello/
+│           ├── hello.sh
+│           └── led.sh
 ├── ebaz4205_merged.xdc             # Merged constraint file
 └── ebaz4205_pin_assign.csv         # Pin assignment CSV
 ```
@@ -130,6 +150,32 @@ AXI4-Lite controlled HDMI pattern generator with PS integration.
   - `files/`
     - `hdmi_axi.c` / `hdmi_axi.h` — AXI driver
     - `main.c` — Application entry
+
+### 05_petalinux — PetaLinux Project for EBAZ4205
+
+A PetaLinux 2024.2 project for the EBAZ4205.
+It includes the Vivado hardware design, a custom BSP, build and package
+command notes, reference links, and example shell scripts / applications.
+
+- `project_zynq7000_plnx.xpr.zip` — Vivado project archive
+- `bsp/`
+  - `README_BSP.md` — How to generate a BSP from the PetaLinux project
+  - `device-tree.bbappend` — Device-tree recipe patch
+  - `ebaz4205_plnx_2024.2_tools.bsp` — Pre-built BSP
+  - `petalinux-package` — Patched PetaLinux package script
+- `commands.md` — Command list for PetaLinux setup, build, SD card write,
+  and GPIO / FPGA test
+- `link.md` — Reference links for Vivado, Vitis, PetaLinux, and related
+  articles
+- `files/`
+  - `zynq7000_plnx.xsa` — Exported hardware hand-off
+  - `bootgen.bif` — Boot image generation BIF file
+  - `system-user.dtsi` — Custom device-tree overlay
+  - `example/`
+    - `axi_gpio/` — AXI GPIO sample application
+    - `hello/` — Hello World sample application
+    - `fpga_load.sh` — FPGA bitstream loader script
+    - `led.sh` / `button.sh` / `hello.sh` — GPIO and UART test scripts
 
 ## Common Files
 

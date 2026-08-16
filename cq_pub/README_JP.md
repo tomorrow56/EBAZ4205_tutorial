@@ -60,6 +60,26 @@ cq_pub/
 │               ├── hdmi_axi.c
 │               ├── hdmi_axi.h
 │               └── main.c
+├── 05_petalinux/                   # EBAZ4205用PetaLinuxプロジェクト
+│   ├── project_zynq7000_plnx.xpr.zip # Vivadoプロジェクトアーカイブ
+│   ├── bsp/                        # BSPパッケージファイル
+│   │   ├── README_BSP.md
+│   │   ├── device-tree.bbappend
+│   │   ├── ebaz4205_plnx_2024.2_tools.bsp
+│   │   └── petalinux-package
+│   ├── commands.md                 # PetaLinuxコマンド一覧
+│   ├── link.md                     # 参考リンク
+│   └── files/                      # エクスポート済みHWとサンプル
+│       ├── bootgen.bif
+│       ├── system-user.dtsi
+│       ├── zynq7000_plnx.xsa
+│       └── example/
+│           ├── axi_gpio/
+│           ├── button.sh
+│           ├── fpga_load.sh
+│           ├── hello/
+│           ├── hello.sh
+│           └── led.sh
 ├── ebaz4205_merged.xdc             # 統合制約ファイル
 └── ebaz4205_pin_assign.csv         # ピンアサインCSV
 ```
@@ -129,6 +149,33 @@ PS連携によるAXI4-Lite制御のHDMIパターンジェネレータです。
   - `files/`
     - `hdmi_axi.c` / `hdmi_axi.h` — AXIドライバ
     - `main.c` — アプリケーションエントリ
+
+### 05_petalinux — EBAZ4205用PetaLinuxプロジェクト
+
+EBAZ4205向けのPetaLinux 2024.2プロジェクトです。
+Vivadoハードウェア設計、カスタムBSP、ビルド・パッケージング用コマンド
+メモ、参考リンク、およびサンプルシェルスクリプト/アプリケーションが
+含まれています。
+
+- `project_zynq7000_plnx.xpr.zip` — Vivadoプロジェクトアーカイブ
+- `bsp/`
+  - `README_BSP.md` — PetaLinuxプロジェクトからBSPを生成する方法
+  - `device-tree.bbappend` — デバイスツリーレシピのパッチ
+  - `ebaz4205_plnx_2024.2_tools.bsp` — プリビルドBSP
+  - `petalinux-package` — パッチ済みPetaLinux packageスクリプト
+- `commands.md` — PetaLinux環境構築、ビルド、SDカード書き込み、
+  GPIO/FPGAテスト用のコマンド一覧
+- `link.md` — Vivado/Vitis/PetaLinuxおよび関連記事への参考リンク
+- `files/`
+  - `zynq7000_plnx.xsa` — エクスポートされたハードウェアハンドオフ
+  - `bootgen.bif` — ブートイメージ生成用BIFファイル
+  - `system-user.dtsi` — カスタムデバイスツリーオーバーレイ
+  - `example/`
+    - `axi_gpio/` — AXI GPIOサンプルアプリケーション
+    - `hello/` — Hello Worldサンプルアプリケーション
+    - `fpga_load.sh` — FPGAビットストリーム書き込みスクリプト
+    - `led.sh` / `button.sh` / `hello.sh` — GPIOおよびUARTテスト
+      スクリプト
 
 ## 共通ファイル
 
