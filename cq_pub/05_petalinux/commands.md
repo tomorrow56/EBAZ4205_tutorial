@@ -114,3 +114,41 @@ sudo cp images/linux/boot.scr /media/user/BOOT/
 sudo tar -xzf images/linux/rootfs.tar.gz -C /media/user/rootfs/
 ```
 
+## 開発ツールの組み込み
+
+### Ubuntu PCのコマンド
+
+```bash
+cd ~/petalinux2024.2/ebaz4205_linux
+petalinux-config -c rootfs
+
+bootgen -image bootgen.bif -arch zynq -process_bitstream bin -w on
+
+scp design_1_wrapper.bit.bin root@<EBAZ4205のIPアドレス>:/home/root/
+```
+
+### EBAZ4205のコマンド
+
+```bash
+ls /dev/tty*
+
+ls -l /sys/class/gpio/
+
+echo 512 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio512/direction
+echo 1 > /sys/class/gpio/gpio512/value
+echo 0 > /sys/class/gpio/gpio512/value
+echo 512 > /sys/class/gpio/unexport
+
+ifconfig
+
+ls -l /home/root/design_1_wrapper.bit.bin
+
+mkdir -p /lib/firmware/
+cp /home/root/design_1_wrapper.bit.bin /lib/firmware/
+echo 0 > /sys/class/fpga_manager/fpga0/flags
+echo design_1_wrapper.bit.bin > /sys/class/fpga_manager/fpga0/firmware
+cat /sys/class/fpga_manager/fpga0/state
+```
+
+
